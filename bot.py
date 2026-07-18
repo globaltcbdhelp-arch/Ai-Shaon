@@ -8,8 +8,8 @@ from openai import OpenAI
 
 # Configuration
 TELEGRAM_BOT_TOKEN = "8917248329:AAHxStUTxlsE8vaLpknjd9hrb_kUH_i5SMI"
-OPENAI_API_KEY = os.environ.get("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")
-OPENAI_API_BASE = os.environ.get("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")
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+OPENAI_API_BASE = os.environ.get("OPENAI_API_BASE")
 OPENAI_MODEL = "gpt-5-mini"  # Using gpt-5-mini as per model check
 MAX_CONVERSATION_MEMORY = 15
 MAX_MESSAGE_LENGTH = 4096
@@ -19,7 +19,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 # Initialize OpenAI client
-client = OpenAI(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)
+client = OpenAI(api_key=OPENAI_API_KEY, base_url=OPENAI_API_BASE)
 
 # Conversation memory for each user
 conversation_memory = defaultdict(lambda: deque(maxlen=MAX_CONVERSATION_MEMORY))
